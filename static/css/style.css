@@ -4,6 +4,7 @@
   --paper:     white;
   --accent:    red;
   --accent-lt: #e8693a;
+  --error: #fff5f2;
   --placeholder: #d4cfc6;
   --rule:      black;
   --muted:     black;
@@ -247,6 +248,22 @@ body {
   font-size: .72rem;
   letter-spacing: .15em;
   color: var(--muted);
+}
+
+/* error message */
+#error-box {
+  display: none;
+  margin-top: 1.5rem;
+  padding: .85rem 1.1rem;
+  border-left: 3px solid var(--accent);
+  background: var(--error);
+  font-family: var(--mono);
+  font-size: .78rem;
+  color: var(--accent);
+}
+
+#error-box.visible {
+  display: block;
 }
 
 /* footer */
