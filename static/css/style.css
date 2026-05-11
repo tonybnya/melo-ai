@@ -209,6 +209,46 @@ body {
   cursor: not-allowed;
 }
 
+/* loading state */
+#loader {
+  display: none;
+  margin-top: 2.5rem;
+  align-items: center;
+  gap: 1rem;
+}
+
+#loader.visible {
+  display: flex;
+}
+
+.loader-bots {
+  display: flex;
+  gap: .35rem;
+}
+
+.loader-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.loader-dots span:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.loader-dots span:nth-child(3) {
+  animation-delay: .4s;
+}
+
+.loader-text {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .15em;
+  color: var(--muted);
+}
+
 /* footer */
 .footer {
   border-top: 1px solid var(--rule);
