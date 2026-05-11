@@ -1,5 +1,5 @@
 [project]
-name = "Melo AI"
+name = "melo-ai"
 version = "0.1.0"
 description = "AI app that generates role-specific interview questions for a job title using the Google Gemini API."
 readme = "README.md"
