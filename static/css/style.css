@@ -120,6 +120,28 @@ body {
   line-height: 1.65;
 }
 
+/* ornament divider */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin: 2.5rem 0;
+  animation: fadeDown .65s .2s ease both;
+}
+
+.ornament-line {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.ornament-glyph {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--rule);
+  user-select: none;
+}
+
 /* footer */
 .footer {
   border-top: 1px solid var(--rule);
