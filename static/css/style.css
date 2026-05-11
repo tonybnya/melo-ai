@@ -142,6 +142,73 @@ body {
   user-select: none;
 }
 
+/* input form */
+.form-section {
+  animation: fadeDown .65s .25s ease both;
+}
+
+.input-label {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: .6rem;
+}
+
+.input-row {
+  display: flex;
+  gap: 0;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  transition: box-shadow: .2s;
+  border-radius: 5px;
+}
+
+.input-row:focus-within {
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+#job-title-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 1rem 1.25rem;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 400;
+  background: transparent;
+  color: var(--ink);
+}
+
+#job-title-input::placeholder {
+  color: var(--placeholder);
+}
+
+#submit-btn {
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  padding: 1rem 1.75rem;
+  font-size: .72rem;
+  font-weight: bold;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+  white-space: nowrap;
+}
+
+#submit-btn:hover:not(:disabled) {
+  background: var(--accent);
+}
+
+#submit-btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
 /* footer */
 .footer {
   border-top: 1px solid var(--rule);
