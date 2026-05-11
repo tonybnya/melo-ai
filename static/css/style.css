@@ -292,6 +292,18 @@ body {
   }
 }
 
+@keyframes pulse {
+  0%, 80%, 100% {
+    transform: scale(.6);
+    opacity: .4;
+  }
+
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 /* responsiveness */
 @media (max-width: 560px) {
   .page {
