@@ -6,7 +6,7 @@ Author      : @tonybnya
 
 import os
 import logging
-from flask import Flask
+from flask import Flask, render_template
 from datetime import datetime
 from dotenv import load_dotenv
 
@@ -19,8 +19,19 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 
 
+@app.route("/", methods=['GET'])
+def index():
+    """
+    Serve the single-page application.
+    """
+    return render_template("index.html")
+
+
 @app.route("/health", methods=['GET'])
 def health():
+    """
+    API health checker.
+    """
     return {
         "service": "Melo AI API",
         "version": "1.0.0",
