@@ -85,3 +85,14 @@ body {
   letter-spacing: .12em;
   color: var(--rule);
 }
+
+/* responsiveness */
+@media (max-width: 560px) {
+  .page {
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  .head {
+    padding: .85rem 1.25rem;
+  }
+}
