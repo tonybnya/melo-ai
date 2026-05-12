@@ -7,6 +7,7 @@ Author      : @tonybnya
 import os
 import logging
 from flask import Flask, render_template
+from google import genai
 from datetime import datetime
 from dotenv import load_dotenv
 
@@ -17,6 +18,14 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
+
+# init the Gemini client once at startup (not per request)
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if not GEMINI_API_KEY:
+    raise EnvironmentError("GEMINI_API_KEY environment variable is not set.")
+
+client = genai.Client(api_key=GEMINI_API_KEY)
+GEMINI_MODEL = "gemini-3-flash-preview"
 
 
 @app.route("/", methods=['GET'])
