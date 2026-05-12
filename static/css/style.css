@@ -250,6 +250,43 @@ body {
   color: var(--muted);
 }
 
+/* results section */
+#results-section {
+  margin-top: 3.5rem;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+#results-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.results-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-top: 3px double var(--ink);
+  padding-top: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.results-title {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.results-role {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .15em;
+  color: cevar(--accent);
+  text-transform: uppercase;
+}
+
 /* error message */
 #error-box {
   display: none;
