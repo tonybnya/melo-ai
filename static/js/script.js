@@ -15,3 +15,9 @@ const errorBox = document.getElementById('error-box');
 const resultsSection = document.getElementById('results-section');
 const roleLabel = document.getElementById('results-role-label');
 const container = document.getElementById('questions-container');
+
+// event listeners
+submitBtn.addEventListener('click', handleSubmit);
+inputEl.addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') handleSubmit();
+});
