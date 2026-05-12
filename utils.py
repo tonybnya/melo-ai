@@ -37,6 +37,9 @@ def parse_questions(raw_text: str) -> list[str]:
     The model is instructed to return only a JSON array, but we handle
     edge-cases where it wraps the output in markdown fences.
     """
+    cleaned = re.sub(r"```(?:json)?|```", "", raw_text).strip()
+    questions = json.loads(cleaned)
+
     if not isinstance(questions, list) or len(questions) != 3:
         raise ValueError(f"Expected a list of 3 questions, got: {questions}")
 
