@@ -29,3 +29,15 @@ def build_questions_prompt(job_title: str) -> str:
     Interpolate the job title into the prompt template.
     """
     return PROMPT.format(job_title=job_title)
+
+
+def parse_questions(raw_text: str) -> list[str]:
+    """
+    Extract the JSON array from the model response.
+    The model is instructed to return only a JSON array, but we handle
+    edge-cases where it wraps the output in markdown fences.
+    """
+    if not isinstance(questions, list) or len(questions) != 3:
+        raise ValueError(f"Expected a list of 3 questions, got: {questions}")
+
+    return [str(q) for q in questions]
