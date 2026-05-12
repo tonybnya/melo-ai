@@ -22,3 +22,10 @@ Guidelines:
 Output format -- return ONLY a JSON array of exactly 3 strings, no preamble, no markdown fences:
 ["Question 1", "Question 2", "Question 3"]
 """
+
+
+def build_questions_prompt(job_title: str) -> str:
+    """
+    Interpolate the job title into the prompt template.
+    """
+    return PROMPT.format(job_title=job_title)
