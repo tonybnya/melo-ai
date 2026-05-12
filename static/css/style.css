@@ -287,6 +287,50 @@ body {
   text-transform: uppercase;
 }
 
+/* question cards */
+.question-card {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  position: relative;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.question-card:hover {
+  border-color: var(--ink);
+  box-shadow: 3px 3px 0 var(--rule);
+}
+
+.q-number {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--rule);
+  line-height: 1;
+  user-select: none;
+  padding-top: .1rem;
+}
+
+.q-tag {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: .45rem;
+}
+
+.q-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
 /* error message */
 #error-box {
   display: none;
