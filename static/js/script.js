@@ -16,6 +16,53 @@ const resultsSection = document.getElementById('results-section');
 const roleLabel = document.getElementById('results-role-label');
 const container = document.getElementById('questions-container');
 
+// state helpers
+function setLoading(on) {
+  submitBtn.disabled = on;
+  loader.classList.toggle('visible', on);
+}
+
+function showError(msg) {
+  errorBox.textContent = '⚠ ' + msg;
+  errorBox.classList.add('visible');
+}
+
+function clearError() {
+  errorBox.textContent = '';
+  errorBox.classList.add('visible');
+}
+
+function renderQuestions(jobTitle, questions) {
+  roleLabel.textContent = jobTitle;
+  container.innerHTML = '';
+
+  questions.forEach(function (q, i) {
+    const card = document.createElement('div');
+    card.className = 'question-card';
+    card.style.animationDelay = (i * 0.12) + 's';
+
+    card.innerHTML = `
+      <div class="q-number">0${i + 1}</div>
+      <div>
+        <div class="q-tag">${Q_TAGS[i] || 'Question'}</div>
+        <p class="q-text">${escapeHtml(q)}</p>
+      </div>`;
+
+    container.appendChild(card);
+  });
+
+  resultsSection.classList.add('visible');
+  resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 // submit handler
 async function handleSubmit() {
   cons jobTitle = inputEl.value.trim();
