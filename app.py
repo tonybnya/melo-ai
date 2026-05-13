@@ -74,10 +74,10 @@ def generate_questions():
 
     # call Gemini API
     try:
-        prompt =  build_questions_prompt(job_title)
+        prompt = build_questions_prompt(job_title)
         response = client.models.generate_content(
             model=GEMINI_MODEL,
-            contents=prompt
+            contents=prompt,
         )
         raw_text = response.text
     except Exception:
@@ -89,7 +89,7 @@ def generate_questions():
         questions = parse_questions(raw_text)
     except Exception:
         logger.exception("Failed to parse model response: %s", raw_text)
-        return jsonify({"error": "Unexpected response format from Gemini AI. Please retry."}), 500
+        return jsonify({"error": "Unexpected response format from AI. Please retry."}), 500
 
     return jsonify({"questions": questions}), 200
 
