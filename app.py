@@ -8,7 +8,6 @@ import os
 import logging
 from flask import Flask, jsonify, render_template, request
 from google import genai
-from datetime import datetime
 from dotenv import load_dotenv
 from utils import build_questions_prompt, parse_questions
 

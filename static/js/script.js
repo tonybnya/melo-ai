@@ -2,11 +2,13 @@
 (function () {
   const d = new Date();
   document.getElementById('footer-year').textContent = d.getFullYear();
-  document.getElementById('current-date').textContent = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  document.getElementById('today-date').textContent =
+    d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 })();
 
 // tag labels per question index
 const Q_TAGS = ['Technical & Functional', 'Situational Judgment', 'Culture & Behaviour'];
+
 // DOM references
 const inputEl = document.getElementById('job-title-input');
 const submitBtn = document.getElementById('submit-btn');
@@ -29,7 +31,7 @@ function showError(msg) {
 
 function clearError() {
   errorBox.textContent = '';
-  errorBox.classList.add('visible');
+  errorBox.classList.remove('visible');
 }
 
 function renderQuestions(jobTitle, questions) {
@@ -65,12 +67,12 @@ function escapeHtml(str) {
 
 // submit handler
 async function handleSubmit() {
-  cons jobTitle = inputEl.value.trim();
+  const jobTitle = inputEl.value.trim();
 
   clearError();
   resultsSection.classList.remove('visible');
 
-  if(!jobTitle) {
+  if (!jobTitle) {
     showError('Please enter a job title before submitting.');
     inputEl.focus();
     return;
@@ -103,6 +105,7 @@ async function handleSubmit() {
 
 // event listeners
 submitBtn.addEventListener('click', handleSubmit);
+
 inputEl.addEventListener('keydown', function (e) {
   if (e.key === 'Enter') handleSubmit();
 });
