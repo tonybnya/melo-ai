@@ -2,7 +2,7 @@
 (function () {
   const d = new Date();
   document.getElementById('footer-year').textContent = d.getFullYear();
-  document.getElementById('today-date').textContent =
+  document.getElementById('current-date').textContent =
     d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 })();
 
